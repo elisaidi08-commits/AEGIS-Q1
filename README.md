@@ -15,4 +15,4 @@ Projet Q1 en UX/UI : intégration HTML/CSS basée sur une wireframe et une maque
 - CSS3
 
 ## Démo
-Netlify : 
+Netlify : https://leafy-cocada-121f1f.netlify.app/
