@@ -1,0 +1,359 @@
+/* ==========================================================
+   01) RESET CSS
+   ========================================================== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body { margin: 0; }
+
+hr { border: 0; margin: 0; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+button { font: inherit; }
+
+/* ==========================================================
+   02) DESIGN SYSTEM (Variables CSS)
+   Couleurs + typo inspirées de ta mid-fi
+   ========================================================== */
+:root{
+  --c-purple: #4a31ff;
+  --c-blue: #2f46ff;
+  --c-green: #35ff7a;
+  --c-teal:  #2ee6b3;
+
+  --c-ink: #1a1452;
+  --c-ink-2: #0f0b3a;
+
+  --c-line: rgba(15, 11, 58, 0.25);
+
+  --font-sans: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  --container: 420px;
+
+  --r-pill: 999px;
+  --r-card: 52px;
+
+  --s-1: 8px;
+  --s-2: 12px;
+  --s-3: 16px;
+  --s-4: 24px;
+  --s-5: 32px;
+
+  --shadow-soft: 0 18px 40px rgba(10, 8, 40, 0.25);
+  --shadow-glow: 0 0 30px rgba(53, 255, 122, 0.25);
+}
+
+/* ==========================================================
+   03) GLOBAL
+   ========================================================== */
+.page{
+  font-family: var(--font-sans);
+  color: var(--c-ink);
+  min-height: 100vh;
+
+  background: linear-gradient(
+    180deg,
+    var(--c-purple) 0%,
+    var(--c-blue) 22%,
+    var(--c-green) 52%,
+    var(--c-blue) 78%,
+    var(--c-purple) 100%
+  );
+}
+
+.site-header,
+.main,
+.site-footer{
+  width: min(100% - 24px, var(--container));
+  margin: 0 auto;
+}
+
+.divider{
+  height: 1px;
+  background: var(--c-line);
+}
+
+/* ==========================================================
+   04) HEADER (Flexbox)
+   ========================================================== */
+.site-header{
+  padding: var(--s-4) 0 var(--s-2);
+}
+
+.site-header__inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--s-3);
+}
+
+.site-header__logo{
+  width: 54px;
+  height: 54px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(180deg, var(--c-green), var(--c-teal));
+  color: var(--c-ink-2);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  box-shadow: var(--shadow-glow);
+}
+
+.menu-toggle{
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.menu-toggle__icons{
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.menu-toggle__icon{
+  width: 9px;
+  height: 9px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(180deg, var(--c-green), var(--c-teal));
+}
+
+.menu-toggle__label{
+  font-weight: 900;
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================
+   05) HERO
+   ========================================================== */
+.main{
+  padding: var(--s-2) 0 var(--s-4);
+}
+
+.hero{
+  text-align: center;
+  padding: var(--s-2) 0 var(--s-4);
+}
+
+.hero__inner{
+  padding: var(--s-3) var(--s-2);
+}
+
+.hero__title{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(15, 11, 58, 0.55);
+  line-height: 0.95;
+  font-size: 44px;
+}
+
+.hero__subtitle{
+  margin: var(--s-2) 0 0;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(15, 11, 58, 0.75);
+}
+
+/* 2 boutons en ligne */
+.hero__actions{
+  margin-top: var(--s-4);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+
+/* ==========================================================
+   06) BUTTONS (BEM modifiers)
+   ========================================================== */
+.btn{
+  width: 48%;
+  height: 42px;
+  border-radius: var(--r-pill);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  border: 0;
+  color: rgba(15, 11, 58, 0.85);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn--primary{
+  background: linear-gradient(90deg, var(--c-green), var(--c-blue));
+}
+
+.btn--secondary{
+  background: linear-gradient(90deg, var(--c-blue), var(--c-green));
+}
+
+/* ==========================================================
+   07) PROMO CARD
+   ========================================================== */
+.promo{
+  padding: var(--s-5) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.promo-card{
+  width: 100%;
+  max-width: 320px;
+  height: 420px;
+  border-radius: var(--r-card);
+
+  background: linear-gradient(
+    180deg,
+    rgba(74,49,255,0.25) 0%,
+    rgba(53,255,122,0.20) 50%,
+    rgba(74,49,255,0.25) 100%
+  );
+
+  box-shadow: var(--shadow-soft);
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--s-5) var(--s-4);
+  gap: var(--s-4);
+}
+
+.promo-card__badge{
+  width: 180px;
+  height: 120px;
+  border-radius: 70px;
+
+  background: linear-gradient(180deg, var(--c-green), var(--c-blue));
+  color: rgba(15, 11, 58, 0.9);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.1;
+
+  box-shadow: var(--shadow-glow);
+}
+
+.promo-card__cta{
+  width: 170px;
+  height: 42px;
+  border-radius: var(--r-pill);
+}
+
+/* Ligne à l’intérieur de la card */
+.promo-card::after{
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 92px;
+  height: 2px;
+  background: rgba(15, 11, 58, 0.25);
+  border-radius: 2px;
+}
+
+/* ==========================================================
+   08) SOCIAL (Grid)
+   ========================================================== */
+.quick-links{
+  padding: var(--s-4) 0;
+}
+
+.quick-links__list{
+  width: min(100%, 260px);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+  place-items: center;
+}
+
+.quick-links__circle{
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(180deg, var(--c-green), var(--c-teal));
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--c-ink-2);
+  font-weight: 900;
+  box-shadow: var(--shadow-glow);
+}
+
+/* ==========================================================
+   09) FOOTER (Liens légaux)
+   ========================================================== */
+.site-footer{
+  padding: var(--s-3) 0 var(--s-5);
+}
+
+.site-footer__nav{
+  display: flex;
+  justify-content: center;
+}
+
+.site-footer__legal-link{
+  width: 200px;
+  height: 30px;
+  border-radius: 6px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  background: linear-gradient(90deg, var(--c-green), var(--c-blue));
+  color: rgba(15, 11, 58, 0.9);
+
+  box-shadow: var(--shadow-soft);
+}
+
+/* ==========================================================
+   10) RESPONSIVE (optionnel mais propre)
+   ========================================================== */
+@media (min-width: 768px){
+  :root{ --container: 520px; }
+  .hero__title{ font-size: 52px; }
+}

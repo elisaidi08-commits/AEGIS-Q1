@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aegis Bank — Q1</title>
+
+  <!-- TYPO (mid-fi) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
+
+  <!-- CONNECTIVITÉ: lien CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body class="page">
+
+  <!-- HEADER (logo + menu) -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="#" aria-label="Accueil Aegis">AE<br>GIS</a>
+
+      <nav class="site-header__nav" aria-label="Navigation principale">
+        <button class="menu-toggle" type="button" aria-label="Ouvrir le menu">
+          <span class="menu-toggle__icons" aria-hidden="true">
+            <span class="menu-toggle__icon"></span>
+            <span class="menu-toggle__icon"></span>
+            <span class="menu-toggle__icon"></span>
+          </span>
+          <span class="menu-toggle__label">MENU</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <hr class="divider">
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HERO (titre + sous-titre + 2 boutons) -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <h1 class="hero__title" id="hero-title">AEGIS<br>BANK</h1>
+        <p class="hero__subtitle">La néobanque pour les jeunes, par les jeunes</p>
+      </div>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#promo">BOUTON 1</a>
+        <a class="btn btn--secondary" href="#legal">BOUTON 1</a>
+      </div>
+    </section>
+
+    <!-- PROMO (grosse card + badge + bouton) -->
+    <section class="promo" id="promo" aria-label="Offre promotionnelle">
+      <article class="promo-card">
+        <div class="promo-card__badge">PROMO<br>CARD</div>
+        <a class="btn btn--primary promo-card__cta" href="#">COMMENCEZ</a>
+      </article>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SOCIAL (3 ronds) -->
+    <section class="quick-links" aria-label="Réseaux sociaux">
+      <ul class="quick-links__list">
+        <li class="quick-links__item"><span class="quick-links__circle">f</span></li>
+        <li class="quick-links__item"><span class="quick-links__circle">◎</span></li>
+        <li class="quick-links__item"><span class="quick-links__circle">t</span></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="legal">
+    <nav class="site-footer__nav" aria-label="Liens légaux">
+      <a class="site-footer__legal-link" href="#">LIENS LÉGAUX</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
