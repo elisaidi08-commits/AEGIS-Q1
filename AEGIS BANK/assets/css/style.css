@@ -15,7 +15,6 @@ button { font: inherit; }
 
 /* ==========================================================
    02) DESIGN SYSTEM (Variables CSS)
-   Couleurs + typo inspirées de ta mid-fi
    ========================================================== */
 :root{
   --c-purple: #4a31ff;
@@ -351,9 +350,10 @@ button { font: inherit; }
 }
 
 /* ==========================================================
-   10) RESPONSIVE (optionnel mais propre)
+   10) RESPONSIVE 
    ========================================================== */
 @media (min-width: 768px){
   :root{ --container: 520px; }
   .hero__title{ font-size: 52px; }
 }
+
