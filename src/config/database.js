@@ -22,6 +22,7 @@ function initializeDatabase() {
       language TEXT DEFAULT 'fr',
       is_minor BOOLEAN DEFAULT 0,
       parent_email TEXT DEFAULT NULL,
+      referral_code TEXT UNIQUE,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );

@@ -37,11 +37,11 @@ db.exec(`
 const passwordHash = bcrypt.hashSync('demo1234', 10);
 
 const userResult = db.prepare(`
-  INSERT INTO users (first_name, last_name, email, phone, password_hash, date_of_birth, avatar_url, language, is_minor, parent_email)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  INSERT INTO users (first_name, last_name, email, phone, password_hash, date_of_birth, avatar_url, language, is_minor, parent_email, referral_code)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `).run(
   'Eli', 'Saïdi', 'eli@aegisbank.io', '+32 470 12 34 56',
-  passwordHash, '2003-10-08', null, 'fr', 0, null
+  passwordHash, '2003-10-08', null, 'fr', 0, null, 'AEGIS-ELI2847'
 );
 
 const userId = userResult.lastInsertRowid;

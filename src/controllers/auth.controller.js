@@ -36,21 +36,21 @@ exports.register = (req, res) => {
 
   const password_hash = bcrypt.hashSync(password, 10);
 
+  // Generate referral code
+  const referralCode = `AEGIS-${first_name.toUpperCase().slice(0,3)}${Math.floor(Math.random() * 10000)}`;
+
   const insert = db.prepare(`
-    INSERT INTO users (first_name, last_name, email, phone, password_hash, date_of_birth, is_minor, parent_email)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO users (first_name, last_name, email, phone, password_hash, date_of_birth, is_minor, parent_email, referral_code)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
-  const result = insert.run(first_name, last_name, email, phone || null, password_hash, date_of_birth, is_minor ? 1 : 0, is_minor ? parent_email : null);
+  const result = insert.run(first_name, last_name, email, phone || null, password_hash, date_of_birth, is_minor ? 1 : 0, is_minor ? parent_email : null, referralCode);
 
   // Create a default account with a fictional Belgian IBAN
   const ibanNum = String(Math.floor(Math.random() * 10000000000000000)).padStart(16, '0');
   const iban = `BE68 ${ibanNum.slice(0,4)} ${ibanNum.slice(4,8)} ${ibanNum.slice(8,12)} ${ibanNum.slice(12,16)}`;
 
   db.prepare('INSERT INTO accounts (user_id, iban, balance) VALUES (?, ?, 0)').run(result.lastInsertRowid, iban);
-
-  // Generate referral code
-  const referralCode = `AEGIS-${first_name.toUpperCase().slice(0,3)}${Math.floor(Math.random() * 10000)}`;
 
   const token = jwt.sign({ id: result.lastInsertRowid, email }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN
@@ -105,7 +105,8 @@ exports.login = (req, res) => {
         last_name: user.last_name,
         email: user.email,
         avatar_url: user.avatar_url,
-        language: user.language
+        language: user.language,
+        referral_code: user.referral_code
       }
     }
   });
